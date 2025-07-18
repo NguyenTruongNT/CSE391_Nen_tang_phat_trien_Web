@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nguyễn Văn Trường</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1>Quản lý sinh viên</h1>
+    </header>
+
+    <main class="container">
+      <!-- Form bên trái -->
+      <section class="form-section">
+        <h2>Thêm Sinh Viên</h2>
+        <form class="student-form">
+          <div class="form-group">
+            <label for="masv">Mã sinh viên:</label>
+            <input type="text" id="masv" required />
+          </div>
+          <div class="form-group">
+            <label for="hoten">Họ và tên:</label>
+            <input type="text" id="hoten" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="ngaysinh">Ngày sinh:</label>
+            <input type="date" id="ngaysinh" />
+          </div>
+          <div class="form-group">
+            <label>Giới tính:</label>
+            <label
+              ><input type="radio" name="gender" value="Nam" checked />
+              Nam</label
+            >
+            <label><input type="radio" name="gender" value="Nữ" /> Nữ</label>
+          </div>
+          <div class="form-group">
+            <label for="ghichu">Ghi chú:</label>
+            <textarea id="ghichu"></textarea>
+          </div>
+          <div class="form-group centered">
+            <button type="submit" class="btn">Thêm sinh viên</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Bảng bên phải -->
+      <section class="table-section">
+        <h2>Danh Sách Sinh Viên</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã SV</th>
+              <th>Họ tên</th>
+              <th>Email</th>
+              <th>Giới tính</th>
+              <th>Ngày sinh</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01</td>
+              <td>SV1010</td>
+              <td>Lục Văn Thuận</td>
+              <td>thuanlucvan@gmail.com</td>
+              <td>Nam</td>
+              <td>2005-01-07</td>
+              <td>
+                <a href="#"><i class="fas fa-edit"></i></a>
+                <a href="#"><i class="fas fa-trash-alt"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>02</td>
+              <td>SV1011</td>
+              <td>Lưu Minh Quân</td>
+              <td>quanexe@gmail.com</td>
+              <td>Nam</td>
+              <td>2005-02-10</td>
+              <td>
+                <a href="#"><i class="fas fa-edit"></i></a>
+                <a href="#"><i class="fas fa-trash-alt"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>03</td>
+              <td>SV1012</td>
+              <td>Nguyễn Anh Tuấn</td>
+              <td>tuannguyenanh@gmail.com</td>
+              <td>Nam</td>
+              <td>2005-09-11</td>
+              <td>
+                <a href="#"><i class="fas fa-edit"></i></a>
+                <a href="#"><i class="fas fa-trash-alt"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>
