@@ -1,0 +1,29 @@
+body {
+  background-color: #f5faff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.section-header {
+  background-color: #f1f1f1;
+  padding: 10px 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  border-left: 4px solid #007bff;
+}
+
+.table-custom-header {
+  background-color: #64b5f6;
+  color: white;
+}
+
+.table tbody tr:hover {
+  background-color: #d0e9ff;
+}
+
+a.btn i {
+  transition: color 0.3s ease;
+}
+
+a.btn:hover i {
+  color: white;
+}

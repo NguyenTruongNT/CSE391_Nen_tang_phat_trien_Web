@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nguyễn Văn Trường</title>
+  </head>
+  <body>
+    <h2>Nhập tên của bạn:</h2>
+    <input type="text" id="nameInput" placeholder="Nhập tên" />
+    <button onclick="sayHello()">Chào</button>
+
+    <p id="message"></p>
+
+    <script>
+      function sayHello() {
+        const name = document.getElementById("nameInput").value;
+        document.getElementById("message").textContent = `Xin chào, ${name}!`;
+      }
+    </script>
+  </body>
+</html>
