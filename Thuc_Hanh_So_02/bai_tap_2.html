@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BÀI TẬP 02 - Nguyễn Văn Trường</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background-color: white;
+        color: black;
+      }
+
+      header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        z-index: 10;
+      }
+
+      .logo {
+        font-family: Georgia, serif;
+        font-weight: bold;
+        color: gold;
+        font-size: 24px;
+      }
+
+      nav a {
+        color: yellow;
+        margin-left: 20px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .hero {
+        height: 600px;
+        background-image: url("./img/ocean.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .hero-content {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 30px 40px;
+        text-align: center;
+        color: white;
+        border-radius: 10px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .hero-content button {
+        background-color: yellow;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .highlights {
+        background-color: #ccf2f4;
+        color: black;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .highlights h2 {
+        margin-bottom: 30px;
+        font-size: 28px;
+      }
+
+      .cards {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        background-color: #ccf2f4;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 30%;
+        min-width: 250px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card p {
+        padding: 10px 0;
+        font-weight: bold;
+      }
+
+      .card span {
+        color: teal;
+      }
+
+      footer {
+        background-color: black;
+        text-align: center;
+        padding: 20px;
+      }
+
+      footer i {
+        font-size: 24px;
+        margin: 0 10px;
+        color: white;
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">TRAVEL GOALS</div>
+      <nav>
+        <a href="#" target="_blank">Destinations</a>
+        <a href="#" target="_blank">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>JOE'S TRAVEL PAGE</h1>
+          <p>LET'S EXPLORE THE WORLD TOGETHER</p>
+          <button>Discover places</button>
+        </div>
+      </section>
+
+      <section class="highlights">
+        <h2>HIGHLIGHTS</h2>
+        <div class="cards">
+          <div class="card">
+            <img src="./img/miami.jpg" alt="Miami" />
+            <p>MIAMI <span>USA</span></p>
+          </div>
+          <div class="card">
+            <img src="./img/munich.jpg" alt="Munich" />
+            <p>MUNICH <span>GERMANY</span></p>
+          </div>
+          <div class="card">
+            <img src="./img/barcelona.jpg" alt="Barcelona" />
+            <p>BARCELONA <span>SPAIN</span></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+    </footer>
+  </body>
+</html>
