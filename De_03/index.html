@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nguyễn Văn Trường - 65KTPM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header
+      class="custom-header d-flex justify-content-between align-items-center px-3 py-4"
+    >
+      <div class="text-white fw-semibold">Trường Đại học Thủy lợi</div>
+      <nav class="d-flex align-items-center gap-3">
+        <a href="#" class="menu-link active">Trang chủ</a>
+        <a href="#" class="menu-link">Quản lý cửa hàng</a>
+        <input
+          type="text"
+          class="form-control form-control-sm search-box"
+          placeholder="Nhập nội dung tìm kiếm"
+        />
+        <button class="btn btn-outline-success btn-sm">TÌM KIẾM</button>
+      </nav>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="container mt-3">
+      <div class="row align-items-center g-2">
+        <!-- Nút THÊM và XUẤT RA FILE -->
+        <div class="col-md-auto d-flex gap-2">
+          <button
+            class="btn btn-primary d-flex align-items-center gap-1"
+            data-bs-toggle="modal"
+            data-bs-target="#addModal"
+          >
+            <i class="bi bi-plus-circle-fill"></i> THÊM MỚI
+          </button>
+          <button class="btn btn-light border d-flex align-items-center gap-1">
+            <i class="bi bi-upload"></i> XUẤT RA FILE
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Tìm kiếm -->
+        <div class="col-md-auto mx-auto d-flex">
+          <div class="input-group">
+            <span class="input-group-text"
+              ><i class="bi bi-chevron-right"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Tìm kiếm theo Tên"
+            />
+            <button class="btn btn-outline-secondary" type="button">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chọn kết quả -->
+        <div class="col-md-auto d-flex align-items-center">
+          <b class="me-2">Kết quả </b>
+          <select class="form-select form-select-sm w-auto">
+            <option selected>5</option>
+            <option>10</option>
+            <option>20</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- BẢNG DANH SÁCH -->
+      <div class="table-responsive mt-3">
+        <table class="table table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th></th>
+              <!-- Cột dropdown nút -->
+              <th>Hành động</th>
+              <th>STT</th>
+              <th>Tên</th>
+              <th>Họ đệm</th>
+              <th>Địa chỉ</th>
+              <th>Hoạt động</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="d-flex justify-content-end mt-3">
+        <p class="mb-0"><strong>Kết quả 1 đến 4</strong></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="bg-dark text-white py-3"
+      style="background-color: #00187d !important"
+    >
+      <div class="container">
+        <h6 class="mb-1 fw-bold">TRƯỜNG ĐẠI HỌC THUỶ LỢI</h6>
+        <p class="mb-0 small">Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+        <p class="mb-0 small">
+          Điện thoại: (024) 38522201 - Fax: (024) 35633351
+        </p>
+        <p class="mb-0 small">
+          Email:
+          <a
+            href="mailto:phonghcth@tlu.edu.vn"
+            class="text-blue text-decoration-underline"
+            >phonghcth@tlu.edu.vn</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- Modal Form Thêm giao dịch -->
+    <div
+      class="modal fade"
+      id="addModal"
+      tabindex="-1"
+      aria-labelledby="addModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <form class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Thêm Nhân viên</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Tên</label>
+              <input type="text" class="form-control" id="ten" />
+              <div class="invalid-feedback">
+                Tên không được để trống và không vượt quá 15 ký tự.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Họ đệm</label>
+              <input type="text" class="form-control" id="hoDem" />
+              <div class="invalid-feedback">
+                Họ đệm không được để trống và không vượt quá 20 ký tự.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Địa chỉ</label>
+              <input type="text" class="form-control" id="diaChi" />
+              <div class="invalid-feedback">
+                Địa chỉ không được để trống và không vượt quá 50 ký tự.
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal-footer justify-content-end"
+            style="background-color: #edf1f3"
+          >
+            <button
+              type="button"
+              class="btn btn-secondary me-2"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button type="submit" class="btn btn-success">Thêm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

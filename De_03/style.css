@@ -1,0 +1,114 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  flex: 1;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #00187d;
+  color: white;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+
+footer .container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+footer a {
+  color: #9cd1ff;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+.navbar .form-control {
+  max-width: 200px;
+}
+
+.search-box {
+  width: 180px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.btn-sm i {
+  font-size: 14px;
+}
+
+.btn-outline-success {
+  border-color: #28a745;
+  color: #28a745;
+  padding: 0.25rem 0.6rem;
+  font-size: 14px;
+  height: 30px;
+  line-height: 1;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal-content {
+  border-radius: 8px;
+}
+
+.modal-title {
+  font-weight: 600;
+}
+.custom-header {
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.menu-link {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.menu-link:hover,
+.menu-link.active {
+  color: white;
+  font-weight: 500;
+}
+
+.custom-pagination .page-link {
+  border: none !important;
+  background: transparent;
+  color: #000;
+}
+
+.custom-pagination .page-item.active .page-link {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.custom-pagination .page-text {
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  color: #000;
+}
