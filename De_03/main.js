@@ -1,17 +1,20 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form.modal-content");
-  const inputTen = document.getElementById("ten");
-  const inputHoDem = document.getElementById("hoDem");
-  const inputDiaChi = document.getElementById("diaChi");
+$(document).ready(function () {
+  const $form = $("form.modal-content");
+  const $inputTen = $("#ten");
+  const $inputHoDem = $("#hoDem");
+  const $inputDiaChi = $("#diaChi");
+  const $tbody = $("tbody");
 
-  form.addEventListener("submit", function (e) {
+  // Hiển thị dữ liệu từ data.js
+  renderTable();
+
+  $form.on("submit", function (e) {
     e.preventDefault();
 
-    const ten = inputTen.value.trim();
-    const hoDem = inputHoDem.value.trim();
-    const diaChi = inputDiaChi.value.trim();
+    const ten = $inputTen.val().trim();
+    const hoDem = $inputHoDem.val().trim();
+    const diaChi = $inputDiaChi.val().trim();
 
-    // Kiểm tra điều kiện ràng buộc
     if (!ten || !hoDem || !diaChi) {
       alert("Vui lòng không để trống bất kỳ trường nào.");
       return;
@@ -29,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Nếu hợp lệ => thêm vào mảng và cập nhật bảng
     const nguoiDungMoi = {
       ten,
       hoDem,
@@ -40,46 +42,45 @@ document.addEventListener("DOMContentLoaded", function () {
     danhSachNguoiDung.push(nguoiDungMoi);
     renderTable();
 
-    // Reset form
-    form.reset();
+    // Hiển thị thông báo thành công
+    alert("Thêm người dùng thành công!");
+
+    $form[0].reset();
     bootstrap.Modal.getInstance(document.getElementById("addModal")).hide();
   });
 
-  // Hàm hiển thị dữ liệu ra bảng
   function renderTable() {
-    const tbody = document.querySelector("tbody");
-    tbody.innerHTML = "";
+    $tbody.empty();
 
-    danhSachNguoiDung.forEach((nguoi, index) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>
-          <button class="btn btn-outline-dark btn-sm rounded-1 px-2 py-1 me-3">
-            <i class="bi bi-caret-down-fill"></i>
-          </button>
-        </td>
-        <td>
-          <button class="btn btn-sm btn-primary"><i class="bi bi-eye-fill"></i></button>
-          <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
-          <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
-        </td>
-        <td>${index + 1}</td>
-        <td>${nguoi.ten}</td>
-        <td>${nguoi.hoDem}</td>
-        <td>${nguoi.diaChi}</td>
-        <td>
-          <div class="border border-1 border-secondary border-dashed rounded py-1">
-            ${
-              nguoi.hoatDong
-                ? '<i class="bi bi-check-lg text-success fs-5"></i>'
-                : '<i class="bi bi-x-lg text-danger fs-5"></i>'
-            }
-          </div>
-        </td>
+    $.each(danhSachNguoiDung, function (index, nguoi) {
+      const hoatDongIcon = nguoi.hoatDong
+        ? '<i class="bi bi-check-lg text-success fs-5"></i>'
+        : '<i class="bi bi-x-lg text-danger fs-5"></i>';
+
+      const row = `
+        <tr>
+          <td>
+            <button class="btn btn-outline-dark btn-sm rounded-1 px-2 py-1 me-3">
+              <i class="bi bi-caret-down-fill"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-primary"><i class="bi bi-eye-fill"></i></button>
+            <button class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></button>
+            <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+          </td>
+          <td>${index + 1}</td>
+          <td>${nguoi.ten}</td>
+          <td>${nguoi.hoDem}</td>
+          <td>${nguoi.diaChi}</td>
+          <td>
+            <div class="border border-1 border-secondary border-dashed rounded py-1">
+              ${hoatDongIcon}
+            </div>
+          </td>
+        </tr>
       `;
-      tbody.appendChild(row);
+      $tbody.append(row);
     });
   }
-
-  renderTable(); // hiển thị lần đầu
 });

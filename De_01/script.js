@@ -1,31 +1,32 @@
-const tableBody = document.getElementById("employeeTableBody");
-const form = document.getElementById("addEmployeeForm");
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
-const addressInput = document.getElementById("address");
-const phoneInput = document.getElementById("phone");
+$(document).ready(function () {
+  const $form = $("#addEmployeeForm");
+  const $tableBody = $("#employeeTableBody");
+  const $nameInput = $("#name");
+  const $emailInput = $("#email");
+  const $addressInput = $("#address");
+  const $phoneInput = $("#phone");
 
-// Thêm các span hiển thị lỗi ngay sau các input (chạy 1 lần khi trang tải)
-[nameInput, emailInput, addressInput, phoneInput].forEach((input) => {
-  const errorSpan = document.createElement("div");
-  errorSpan.classList.add("text-danger", "mt-1", "error-message");
-  errorSpan.style.fontSize = "0.9rem";
-  input.insertAdjacentElement("afterend", errorSpan);
-});
+  // Thêm span hiển thị lỗi sau mỗi input
+  $([$nameInput, $emailInput, $addressInput, $phoneInput]).each(function () {
+    const $input = $(this);
+    const $errorSpan = $("<div></div>")
+      .addClass("text-danger mt-1 error-message")
+      .css("font-size", "0.9rem");
+    $input.after($errorSpan);
+  });
 
-// Hiển thị dữ liệu ban đầu từ data.js
-function renderTable() {
-  tableBody.innerHTML = "";
-  data.forEach((employee, index) => {
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td><input type="checkbox" name="employeeCheckbox" id="checkbox-${employee.id}" /></td>
-            <td>${employee.name}</td>
-            <td>${employee.email}</td>
-            <td>${employee.address}</td>
-            <td>${employee.phone}</td>
-            <td>
+  // Hàm render bảng nhân viên
+  function renderTable() {
+    $tableBody.empty();
+    $.each(data, function (index, employee) {
+      const row = `
+        <tr>
+          <td><input type="checkbox" name="employeeCheckbox" id="checkbox-${index}" /></td>
+          <td>${employee.name}</td>
+          <td>${employee.email}</td>
+          <td>${employee.address}</td>
+          <td>${employee.phone}</td>
+          <td>
               <button class="btn">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,95 +66,98 @@ function renderTable() {
                 </svg>
               </button>
             </td>
-          `;
-    tableBody.appendChild(row);
-  });
-}
-renderTable();
-
-// kiểm tra email hợp lệ
-function isValidEmail(email) {
-  const emailRegex = /^[^@]+@[^@]+\.[^@]+$/;
-  return emailRegex.test(email);
-}
-
-// Kiểm tra hợp lệ số điện thoại: đúng 10 số và bắt đầu bằng số 0
-function isValidPhone(phone) {
-  const phoneRegex = /^0\d{9}$/;
-  return phoneRegex.test(phone);
-}
-
-// Hàm hiển thị lỗi cụ thể bên dưới input
-function setError(input, message) {
-  const errorSpan = input.nextElementSibling;
-  errorSpan.textContent = message || "";
-}
-
-// Xử lý sự kiện submit form
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-  const address = addressInput.value.trim();
-  const phone = phoneInput.value.trim();
-
-  let isValid = true;
-
-  // Kiểm tra từng trường và hiển thị lỗi nếu có
-  if (!name) {
-    setError(nameInput, "Tên không được để trống.");
-    isValid = false;
-  } else {
-    setError(nameInput, "");
+        </tr>
+      `;
+      $tableBody.append(row);
+    });
   }
 
-  if (!email) {
-    setError(emailInput, "Email không được để trống.");
-    isValid = false;
-  } else if (!isValidEmail(email)) {
-    setError(emailInput, "Email không hợp lệ.");
-    isValid = false;
-  } else {
-    setError(emailInput, "");
-  }
-
-  if (!address) {
-    setError(addressInput, "Địa chỉ không được để trống.");
-    isValid = false;
-  } else {
-    setError(addressInput, "");
-  }
-
-  if (!phone) {
-    setError(phoneInput, "Số điện thoại không được để trống.");
-    isValid = false;
-  } else if (!isValidPhone(phone)) {
-    setError(
-      phoneInput,
-      "Số điện thoại phải có 10 chữ số và bắt đầu bằng số 0."
-    );
-    isValid = false;
-  } else {
-    setError(phoneInput, "");
-  }
-
-  if (!isValid) return;
-
-  // Thêm nhân viên mới
-  const newEmployee = { name, email, address, phone };
-  data.push(newEmployee);
   renderTable();
-  form.reset();
 
-  // Reset thông báo lỗi
-  [nameInput, emailInput, addressInput, phoneInput].forEach((input) =>
-    setError(input, "")
-  );
+  // Validate email
+  function isValidEmail(email) {
+    return /^[^@]+@[^@]+\.[^@]+$/.test(email);
+  }
 
-  // Đóng modal
-  const modal = bootstrap.Modal.getInstance(
-    document.getElementById("addEmployeeModal")
-  );
-  modal.hide();
+  // Validate SĐT
+  function isValidPhone(phone) {
+    return /^0\d{9}$/.test(phone);
+  }
+
+  // Hiển thị lỗi
+  function setError($input, message) {
+    $input.next(".error-message").text(message);
+  }
+
+  // Xử lý thêm nhân viên
+  $form.on("submit", function (e) {
+    e.preventDefault();
+
+    const name = $nameInput.val().trim();
+    const email = $emailInput.val().trim();
+    const address = $addressInput.val().trim();
+    const phone = $phoneInput.val().trim();
+
+    let isValid = true;
+
+    if (!name) {
+      setError($nameInput, "Tên không được để trống.");
+      isValid = false;
+    } else {
+      setError($nameInput, "");
+    }
+
+    if (!email) {
+      setError($emailInput, "Email không được để trống.");
+      isValid = false;
+    } else if (!isValidEmail(email)) {
+      setError($emailInput, "Email không hợp lệ.");
+      isValid = false;
+    } else {
+      setError($emailInput, "");
+    }
+
+    if (!address) {
+      setError($addressInput, "Địa chỉ không được để trống.");
+      isValid = false;
+    } else {
+      setError($addressInput, "");
+    }
+
+    if (!phone) {
+      setError($phoneInput, "Số điện thoại không được để trống.");
+      isValid = false;
+    } else if (!isValidPhone(phone)) {
+      setError($phoneInput, "Số điện thoại phải 10 số và bắt đầu bằng 0.");
+      isValid = false;
+    } else {
+      setError($phoneInput, "");
+    }
+
+    if (!isValid) return;
+
+    // Thêm vào mảng
+    const newEmployee = { name, email, address, phone };
+    data.push(newEmployee);
+    renderTable();
+    $form[0].reset();
+
+    // Reset lỗi
+    $([$nameInput, $emailInput, $addressInput, $phoneInput]).each(function () {
+      setError($(this), "");
+    });
+
+    // Đóng modal
+    const modal = bootstrap.Modal.getInstance($("#addEmployeeModal")[0]);
+    modal.hide();
+  });
+
+  // Xử lý xóa nhân viên
+  $tableBody.on("click", ".btn-delete", function () {
+    const index = $(this).data("index");
+    if (confirm("Bạn có chắc chắn muốn xóa nhân viên này?")) {
+      data.splice(index, 1);
+      renderTable();
+    }
+  });
 });
