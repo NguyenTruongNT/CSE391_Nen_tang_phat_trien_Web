@@ -5,5 +5,5 @@
 ### 28/07/2025: Thực hành JS. Biết lấy dữ liệu từ form, gắn sự kiện và phản hồi giao diện bằng JS. Thêm, sửa, xóa dữ liệu bằng DOM. Xác thực dữ liệu bằng JS thuần. Luyện tập Đề 01.
 ### 30/07/2025: Luyện tập Đề 02.
 ### 01/08/2025: Luyện tập Đề 03. Làm quen với Jquery.
-### 03/08/2025: Cập nhật thêm Jquery vao cac de luyen tap 01, 02, 03 (./HCJ/De_0...).
+### 03/08/2025: Cập nhật thêm Jquery vào các đề luyện tập 01, 02, 03 (./HCJ/De_0...).
 ### 06/08/2025: Vận dụng kiến thức REACT hoàn thiện Bài Tập Thực Hành Số 04.
