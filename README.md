@@ -9,3 +9,4 @@
 ### 06/08/2025: Vận dụng kiến thức REACT hoàn thiện Bài Tập Thực Hành Số 04.
 ### 08/08/2025: Xây dựng và hoàn thiện trang Quản Lý Sinh Viên bằng Reactjs (student-manager).
 ### 10/08/2025: Sử dụng REACT vào các đề luyện tập 01, 02, 03 (./REACT/de_0...).
+### 11/08/2025: Luyện tập đề 04 có sử dụng REACT (./REACT/de_04). 
